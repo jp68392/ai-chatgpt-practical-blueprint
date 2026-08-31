@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — AI & ChatGPT Practical Blueprint</title>
+<meta name="description" content="Your purchase of AI & ChatGPT Practical Blueprint is confirmed. Download your ebook below.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#0B1F3B;
+    --navy-900:#10264A;
+    --navy-800:#16305B;
+    --blue-500:#5B9BFF;
+    --blue-600:#3E7FE0;
+    --blue-050:#EAF1FF;
+    --green-600:#1C7A54;
+    --green-050:#EAF8F1;
+    --amber-600:#B85C00;
+    --amber-050:#FFF6E9;
+    --purple-600:#5B21B6;
+    --purple-050:#F3EEFF;
+    --ink-900:#1C1F26;
+    --ink-600:#5B6472;
+    --paper:#FFFFFF;
+    --mist-50:#F5F8FC;
+    --border:#E3E9F3;
+    --shadow-sm: 0 1px 2px rgba(11,31,59,0.06);
+    --shadow-md: 0 8px 24px rgba(11,31,59,0.08);
+    --shadow-lg: 0 20px 48px rgba(11,31,59,0.14);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color:var(--ink-900);
+    background:
+      radial-gradient(1100px 500px at 50% -12%, rgba(91,155,255,0.10), transparent 60%),
+      var(--mist-50);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Poppins', 'Inter', sans-serif;
+    color:var(--navy-950);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--blue-600);}
+  a:focus-visible, button:focus-visible{
+    outline:3px solid var(--blue-500);
+    outline-offset:2px;
+  }
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:640px;
+    margin:0 auto;
+    padding:40px 20px 24px;
+  }
+
+  /* ---------- Hero / success ---------- */
+  .hero{
+    text-align:center;
+    padding:8px 8px 32px;
+    animation: rise .6s ease both;
+  }
+  .check-badge{
+    width:76px; height:76px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    background: linear-gradient(160deg, var(--green-600), #0F5C3D);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 12px 28px rgba(28,122,84,0.32), 0 0 0 8px rgba(28,122,84,0.08);
+    animation: pop .55s cubic-bezier(.2,1.4,.4,1) .1s both;
+  }
+  .check-badge svg{ width:36px; height:36px; }
+  .eyebrow{
+    display:inline-block;
+    font-size:12.5px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--green-600);
+    background:var(--green-050);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  .hero h1{
+    font-size:clamp(26px, 5vw, 34px);
+    font-weight:700;
+    margin-bottom:12px;
+  }
+  .hero p{
+    color:var(--ink-600);
+    font-size:15.5px;
+    max-width:440px;
+    margin:0 auto 6px;
+  }
+  .hero p.strong{ color:var(--ink-900); font-weight:500; }
+
+  /* ---------- Ebook delivery card ---------- */
+  .card{
+    background:var(--paper);
+    border:1px solid var(--border);
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+    padding:28px;
+    margin-bottom:20px;
+    animation: rise .6s ease .05s both;
+  }
+
+  .ebook-card{
+    display:flex;
+    gap:22px;
+    align-items:center;
+  }
+  .cover-mock{
+    flex:0 0 108px;
+    width:108px; height:150px;
+    border-radius:10px;
+    background:
+      radial-gradient(120px 90px at 85% 0%, rgba(91,155,255,0.20), transparent 60%),
+      linear-gradient(155deg, var(--navy-800), var(--navy-950) 70%);
+    box-shadow: 0 14px 30px rgba(11,31,59,0.30), 0 2px 0 rgba(255,255,255,0.04) inset;
+    position:relative;
+    overflow:hidden;
+    transform:rotate(-2deg);
+    flex-shrink:0;
+  }
+  .cover-mock .pill{
+    position:absolute; top:12px; left:10px; right:10px;
+    font-size:5.4px; letter-spacing:.08em; text-transform:uppercase;
+    color:#C9D8F5; border:1px solid rgba(201,216,245,0.55);
+    border-radius:999px; padding:2.5px 6px; text-align:center;
+    font-family:'Inter',sans-serif; font-weight:600;
+  }
+  .cover-mock .title{
+    position:absolute; top:38px; left:10px; right:8px;
+    font-family:'Poppins',sans-serif; font-weight:700;
+    font-size:12px; line-height:1.18; color:#fff;
+  }
+  .cover-mock .title em{ color:var(--blue-500); font-style:normal; }
+  .cover-mock .price{
+    position:absolute; bottom:10px; right:10px;
+    font-family:'Poppins',sans-serif; font-weight:700;
+    font-size:10px; color:#fff;
+  }
+
+  .ebook-info{ min-width:0; }
+  .badge-digital{
+    display:inline-block;
+    font-size:10.5px; font-weight:700; letter-spacing:.07em;
+    color:var(--blue-600); background:var(--blue-050);
+    padding:4px 10px; border-radius:999px; margin-bottom:9px;
+  }
+  .ebook-info h2{
+    font-size:19px; line-height:1.28; margin-bottom:7px;
+  }
+  .ebook-info .sub{
+    font-size:13.5px; color:var(--ink-600); margin-bottom:9px;
+  }
+  .ebook-info .author{
+    font-size:13px; color:var(--ink-900); font-weight:500;
+  }
+  .ebook-info .author span{ color:var(--ink-600); font-weight:400; }
+
+  /* ---------- Download CTA ---------- */
+  .cta-block{ text-align:center; margin: 6px 0 26px; animation: rise .6s ease .1s both; }
+  .btn-download{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    width:100%;
+    max-width:420px;
+    background: linear-gradient(180deg, var(--blue-500), var(--blue-600));
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16.5px;
+    padding:17px 22px;
+    border:none;
+    border-radius:var(--radius-md);
+    text-decoration:none;
+    box-shadow: 0 14px 30px rgba(62,127,224,0.35);
+    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  }
+  .btn-download:hover{ transform:translateY(-2px); box-shadow:0 18px 36px rgba(62,127,224,0.42); filter:brightness(1.03); }
+  .btn-download:active{ transform:translateY(0); }
+  .btn-download svg{ width:20px; height:20px; flex-shrink:0; }
+
+  .cta-notes{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--ink-600);
+    max-width:420px;
+    margin-left:auto; margin-right:auto;
+  }
+  .cta-notes p{ margin:4px 0; }
+
+  /* ---------- Support section ---------- */
+  .support h3{ font-size:17px; margin-bottom:8px; }
+  .support p{ font-size:14px; color:var(--ink-600); margin:0 0 14px; }
+  .support-row{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    background:var(--mist-50);
+    border:1px solid var(--border);
+    border-radius:var(--radius-sm);
+    padding:14px 16px;
+  }
+  .support-row a.email{
+    font-size:13.5px; font-weight:600; color:var(--navy-950);
+    word-break:break-all;
+  }
+  .btn-secondary{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper);
+    color:var(--navy-950);
+    border:1.5px solid var(--border);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    padding:9px 16px;
+    border-radius:999px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .btn-secondary:hover{ border-color:var(--blue-500); background:var(--blue-050); }
+
+  /* ---------- Important note ---------- */
+  .note{
+    background:var(--amber-050);
+    border:1px solid #F5DFC0;
+    border-left:4px solid var(--amber-600);
+    border-radius:var(--radius-sm);
+    padding:16px 18px;
+    margin-bottom:8px;
+    animation: rise .6s ease .12s both;
+  }
+  .note p{ font-size:13.5px; color:#6B4400; margin:0 0 6px; }
+  .note p:last-child{ margin-bottom:0; }
+  .note strong{ color:var(--amber-600); }
+
+  /* ---------- Policies accordion ---------- */
+  .policies{ padding:8px 10px; animation: rise .6s ease .14s both; }
+  .policies details{
+    border-bottom:1px solid var(--border);
+  }
+  .policies details:last-of-type{ border-bottom:none; }
+  .policies summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px 8px;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    color:var(--navy-950);
+  }
+  .policies summary::-webkit-details-marker{ display:none; }
+  .policies summary .chev{
+    width:18px; height:18px; flex-shrink:0;
+    color:var(--ink-600);
+    transition: transform .2s ease;
+  }
+  .policies details[open] summary .chev{ transform:rotate(180deg); }
+  .policies details[open] summary{ color:var(--blue-600); }
+  .policy-body{ padding:0 8px 20px; }
+  .policy-body h4{
+    font-family:'Poppins',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--navy-950);
+    margin:14px 0 4px;
+  }
+  .policy-body h4:first-child{ margin-top:0; }
+  .policy-body p{
+    font-size:13px;
+    color:var(--ink-600);
+    margin:0 0 4px;
+  }
+  .policy-body p.policy-meta{
+    font-size:12px;
+    color:var(--ink-600);
+    font-style:italic;
+    margin-bottom:14px;
+  }
+  .policy-body a{ color:var(--blue-600); }
+
+  /* ---------- Footer ---------- */
+  footer{
+    text-align:center;
+    padding:32px 20px 40px;
+    color:var(--ink-600);
+    font-size:12.5px;
+  }
+  .footer-links{
+    display:flex; justify-content:center; flex-wrap:wrap;
+    gap:6px 4px;
+    margin-bottom:14px;
+  }
+  .footer-links a{
+    color:var(--ink-600);
+    text-decoration:none;
+    padding:4px 8px;
+    border-radius:6px;
+  }
+  .footer-links a:hover{ color:var(--navy-950); background:var(--mist-50); }
+  .footer-links .dot{ color:var(--border); }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  @keyframes pop{
+    0%{ transform:scale(.6); opacity:0; }
+    100%{ transform:scale(1); opacity:1; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+
+  @media (max-width:480px){
+    .ebook-card{ flex-direction:column; text-align:center; }
+    .ebook-info .sub{ margin-bottom:10px; }
+    .cover-mock{ margin:0 auto; }
+    .support-row{ flex-direction:column; align-items:stretch; text-align:center; }
+    .btn-secondary{ justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ============ HERO / SUCCESS ============ -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="check-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <span class="eyebrow">Payment Successful</span>
+    <h1 id="hero-heading">Thank You for Your Purchase!</h1>
+    <p class="strong">Thank you for purchasing AI &amp; ChatGPT Practical Blueprint.</p>
+    <p>Your ebook is ready. You can download it using the button below.</p>
+  </section>
+
+  <!-- ============ EBOOK DELIVERY CARD ============ -->
+  <section class="card ebook-card" aria-label="Your ebook">
+    <div class="cover-mock" role="img" aria-label="AI & ChatGPT Practical Blueprint ebook cover">
+      <span class="pill">Hinglish Practical Guide</span>
+      <span class="title">AI &amp; <em>ChatGPT</em><br>Practical Blueprint</span>
+      <span class="price">₹149</span>
+    </div>
+    <div class="ebook-info">
+      <span class="badge-digital">DIGITAL EBOOK</span>
+      <h2>AI &amp; ChatGPT Practical Blueprint</h2>
+      <p class="sub">Beginners ke liye AI ko Work, Content, Freelancing &amp; Daily Productivity mein use karne ki Step-by-Step Hinglish Guide</p>
+      <p class="author">Author: <span>Jitendra Kumar</span></p>
+    </div>
+  </section>
+
+  <!-- ============ DOWNLOAD CTA ============ -->
+  <section class="cta-block" aria-label="Download your ebook">
+    <!-- REPLACE PDF_DOWNLOAD_LINK_HERE WITH YOUR ACTUAL EBOOK PDF LINK -->
+    <a class="btn-download" href="https://pdfbros.com/s/r3ysg9e" download>
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19.5h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download Your Ebook PDF
+    </a>
+    <div class="cta-notes">
+      <p>Button par tap karke ebook PDF open/download karein.</p>
+      <p>Mobile par download karne ke liye PDF open hone ke baad Download icon ka use karein.</p>
+    </div>
+  </section>
+
+  <!-- ============ SUPPORT ============ -->
+  <section class="card support" aria-labelledby="support-heading">
+    <h3 id="support-heading">Need Help?</h3>
+    <p>Agar ebook download karne mein koi problem aaye, humse contact karein.</p>
+    <div class="support-row">
+      <a class="email" href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a>
+      <a class="btn-secondary" href="mailto:Jp5441324@gmail.com">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6l9 7 9-7M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Contact Support
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ IMPORTANT NOTE ============ -->
+  <section class="note" aria-label="Important information">
+    <p><strong>Please save</strong> your ebook after downloading it so you can access it whenever you need.</p>
+    <p>This ebook is for personal learning and use. Please do not redistribute or resell the PDF.</p>
+  </section>
+
+  <!-- ============ POLICIES (full text, copied from landing page) ============ -->
+  <section class="card policies" aria-label="Policies">
+    <details id="privacy">
+      <summary>Privacy Policy<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="policy-body">
+        <p class="policy-meta">Product: AI &amp; ChatGPT Practical Blueprint · Creator: Jitendra Kumar</p>
+
+        <h4>Hum Kya Information Collect Karte Hain</h4>
+        <p>Jab aap ye ebook purchase karte hain, hum aapka naam, email address aur order/payment information collect kar sakte hain, jo payment provider ke through process hota hai.</p>
+
+        <h4>Information Ka Use</h4>
+        <p>Ye information sirf aapko ebook access dene, customer support provide karne, aur order-related communication ke liye use ki jaati hai.</p>
+
+        <h4>Payment Provider</h4>
+        <p>Payment aapke chosen payment provider ke through securely process hota hai. Hum aapki card/payment details store nahi karte.</p>
+
+        <h4>Third-Party Services</h4>
+        <p>Delivery aur payment ke liye third-party services (jaise payment gateway) use ki jaa sakti hain, jo apni own privacy policies follow karti hain.</p>
+
+        <h4>Data Security</h4>
+        <p>Hum reasonable measures use karte hain aapki information ko protect karne ke liye, lekin koi bhi online transmission 100% secure guarantee nahi kar sakta.</p>
+
+        <h4>Data Retention</h4>
+        <p>Order aur communication records support purposes ke liye zaroori samay tak retain kiye jaate hain.</p>
+
+        <h4>Aapke Rights</h4>
+        <p>Aap apni information ke baare mein query, correction ya deletion request kar sakte hain, neeche diye gaye email par contact kar ke.</p>
+
+        <h4>Policy Updates</h4>
+        <p>Ye Privacy Policy samay-samay par update ho sakti hai. Latest version hamesha is page par available rahegi.</p>
+
+        <h4>Contact</h4>
+        <p>Kisi bhi privacy-related query ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
+      </div>
+    </details>
+
+    <details id="terms">
+      <summary>Terms &amp; Conditions<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="policy-body">
+        <h4>Digital Product</h4>
+        <p>AI &amp; ChatGPT Practical Blueprint ek digital ebook hai, jo PDF format mein deliver kiya jaata hai.</p>
+
+        <h4>Personal-Use License</h4>
+        <p>Purchase karne par aapko personal ya professional use ke liye ek non-exclusive license milta hai. Redistribution, reselling ya public uploading allowed nahi hai.</p>
+
+        <h4>Intellectual Property</h4>
+        <p>Is ebook ka poora content — text, prompts, templates aur design — Jitendra Kumar ki intellectual property hai.</p>
+
+        <h4>AI Output Limitations</h4>
+        <p>Is ebook mein diye gaye prompts AI tools (jaise ChatGPT) ke saath use karne ke liye hain. AI outputs kabhi-kabhi incorrect ya incomplete ho sakte hain — inhe hamesha independently verify karein.</p>
+
+        <h4>Educational Purpose</h4>
+        <p>Ye ebook purely educational aur informational purposes ke liye hai. Ye kisi professional, legal, financial ya career consultancy ka substitute nahi hai.</p>
+
+        <h4>No Guaranteed Results</h4>
+        <p>Is ebook mein diye gaye strategies se koi guaranteed income, job ya business result promise nahi kiya jaata. Results individual effort, skill, market conditions aur consistency par depend karte hain.</p>
+
+        <h4>Third-Party AI Tools</h4>
+        <p>Ye ebook third-party AI tools (jaise ChatGPT) ka reference deta hai. Un tools ke apne alag terms &amp; conditions hote hain, jinhe follow karna reader ki responsibility hai. AI tools ke features aur pricing time ke saath change ho sakte hain.</p>
+
+        <h4>Product Access</h4>
+        <p>Purchase ke baad ebook access delivery method ke according provide kiya jaayega.</p>
+
+        <h4>Terms Updates</h4>
+        <p>Ye Terms samay-samay par update ho sakti hain. Latest version is page par available rahegi.</p>
+
+        <h4>Contact</h4>
+        <p>Kisi bhi query ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
+      </div>
+    </details>
+
+    <details id="refund">
+      <summary>Refund Policy<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+      <div class="policy-body">
+        <p class="policy-meta">Product: AI &amp; ChatGPT Practical Blueprint · Regular Price: ₹199 · Offer Price: ₹149</p>
+
+        <h4>Digital Product</h4>
+        <p>AI &amp; ChatGPT Practical Blueprint ek digital (downloadable PDF) product hai.</p>
+
+        <h4>Access Issues</h4>
+        <p>Agar payment successful hone ke baad bhi aapko ebook access nahi milta, please humein turant contact karein — hum pehle technical access problem resolve karne ki koshish karenge.</p>
+
+        <h4>Refund Requests</h4>
+        <p>Refund request karte samay apna order/payment information (jaise transaction ID ya payment receipt) zaroor include karein, taaki hum aapki request jaldi verify kar sakein.</p>
+
+        <h4>Processing</h4>
+        <p>Agar refund approve kiya jaata hai, to wo aapke payment platform ke standard processing rules ke according process hoga. Hum har situation mein refund guarantee nahi karte.</p>
+
+        <h4>Contact</h4>
+        <p>Refund-related queries ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
+      </div>
+    </details>
+  </section>
+
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-links">
+    <!-- These now open the full policy text embedded above on this same page (id="privacy", id="terms", id="refund"). -->
+    <a href="#privacy">Privacy Policy</a><span class="dot">·</span>
+    <a href="#terms">Terms &amp; Conditions</a><span class="dot">·</span>
+    <a href="#refund">Refund Policy</a><span class="dot">·</span>
+    <a href="mailto:Jp5441324@gmail.com">Contact</a>
+  </div>
+  <p>© 2026 Jitendra Kumar. All rights reserved.</p>
+</footer>
+
+<script>
+  // If the page is opened with a #privacy / #terms / #refund hash (from the footer links),
+  // open that policy's accordion automatically and scroll to it.
+  function openHashPolicy(){
+    var id = window.location.hash.replace('#','');
+    var el = document.getElementById(id);
+    if(el && el.tagName === 'DETAILS'){
+      el.setAttribute('open','');
+      el.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+  window.addEventListener('hashchange', openHashPolicy);
+  window.addEventListener('DOMContentLoaded', openHashPolicy);
+</script>
+
+</body>
+</html>
