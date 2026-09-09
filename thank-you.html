@@ -428,17 +428,11 @@
 
 <script>
 async function getEbook(event) {
-
   event.preventDefault();
 
-  const email =
-    document.getElementById("download-email").value.trim();
-
-  const contact =
-    document.getElementById("download-contact").value.trim();
-
-  const message =
-    document.getElementById("download-message");
+  const email = document.getElementById("download-email").value.trim();
+  const contact = document.getElementById("download-contact").value.trim();
+  const message = document.getElementById("download-message");
 
   if (!email || !contact) {
     message.textContent =
@@ -446,48 +440,37 @@ async function getEbook(event) {
     return;
   }
 
-  message.textContent =
-    "Verifying your payment...";
+  message.textContent = "Verifying your payment...";
 
   try {
+    const apiUrl =
+      "https://eiwucaugkvytwtqtbduf.supabase.co/functions/v1/smart-worker" +
+      "?email=" + encodeURIComponent(email) +
+      "&contact=" + encodeURIComponent(contact);
 
-    const response = await fetch(
-      "https://eiwucaugkvytwtqtbduf.supabase.co/functions/v1/smart-worker
-?email="
-      + encodeURIComponent(email)
-      + "&contact="
-      + encodeURIComponent(contact)
-    );
+    const response = await fetch(apiUrl);
 
     const result = await response.json();
 
     if (result.success && result.download_url) {
-
       message.textContent =
         "Payment verified. Opening your ebook...";
 
-      window.location.href =
-        result.download_url;
-
+      window.location.href = result.download_url;
     } else {
-
       message.textContent =
         result.error ||
         "Payment verification failed.";
-
     }
 
   } catch (error) {
-
-    console.error(error);
+    console.error("Download error:", error);
 
     message.textContent =
       "Something went wrong. Please try again.";
-
   }
 }
 </script>
-
   <!-- ============ SUPPORT ============ -->
   <section class="card support" aria-labelledby="support-heading">
     <h3 id="support-heading">Need Help?</h3>
