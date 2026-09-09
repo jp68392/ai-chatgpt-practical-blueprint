@@ -371,17 +371,121 @@
   </section>
 
   <!-- ============ DOWNLOAD CTA ============ -->
-  <section class="cta-block" aria-label="Download your ebook">
-    <!-- REPLACE PDF_DOWNLOAD_LINK_HERE WITH YOUR ACTUAL EBOOK PDF LINK -->
-    <a class="btn-download" href="https://pdfbros.com/s/r3ysg9e" download>
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19.5h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Download Your Ebook PDF
-    </a>
-    <div class="cta-notes">
-      <p>Button par tap karke ebook PDF open/download karein.</p>
-      <p>Mobile par download karne ke liye PDF open hone ke baad Download icon ka use karein.</p>
-    </div>
-  </section>
+ <!-- ============ SECURE DOWNLOAD CTA ============ -->
+<section class="cta-block" aria-label="Download your ebook">
+
+  <h3 style="margin-bottom:8px;">Download Your Ebook</h3>
+
+  <p style="color:var(--ink-600); font-size:14px; margin:0 auto 16px; max-width:420px;">
+    Payment verify karne ke liye wahi Email aur WhatsApp number enter karein
+    jo payment ke time diya tha.
+  </p>
+
+  <div style="max-width:420px; margin:0 auto 12px;">
+
+    <input
+      type="email"
+      id="download-email"
+      placeholder="Enter your Email"
+      autocomplete="email"
+      style="width:100%; padding:14px 16px; margin-bottom:10px; border:1px solid var(--border); border-radius:var(--radius-md); font:inherit; color:var(--ink-900); background:var(--paper); outline:none;"
+    >
+
+    <input
+      type="tel"
+      id="download-contact"
+      placeholder="Enter your WhatsApp Number"
+      autocomplete="tel"
+      style="width:100%; padding:14px 16px; margin-bottom:12px; border:1px solid var(--border); border-radius:var(--radius-md); font:inherit; color:var(--ink-900); background:var(--paper); outline:none;"
+    >
+
+  </div>
+
+  <a
+    class="btn-download"
+    href="#"
+    onclick="getEbook(event)"
+  >
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19.5h16"
+        stroke="#fff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    Download Your Ebook PDF
+  </a>
+
+  <div class="cta-notes">
+    <p id="download-message">
+      Enter your payment details to unlock your ebook.
+    </p>
+  </div>
+
+</section>
+
+<script>
+async function getEbook(event) {
+
+  event.preventDefault();
+
+  const email =
+    document.getElementById("download-email").value.trim();
+
+  const contact =
+    document.getElementById("download-contact").value.trim();
+
+  const message =
+    document.getElementById("download-message");
+
+  if (!email || !contact) {
+    message.textContent =
+      "Please enter your Email and WhatsApp number.";
+    return;
+  }
+
+  message.textContent =
+    "Verifying your payment...";
+
+  try {
+
+    const response = await fetch(
+      "https://eiwucaugkyvwtqtdbuf.supabase.co/functions/v1/smart-worker?email="
+      + encodeURIComponent(email)
+      + "&contact="
+      + encodeURIComponent(contact)
+    );
+
+    const result = await response.json();
+
+    if (result.success && result.download_url) {
+
+      message.textContent =
+        "Payment verified. Opening your ebook...";
+
+      window.location.href =
+        result.download_url;
+
+    } else {
+
+      message.textContent =
+        result.error ||
+        "Payment verification failed.";
+
+    }
+
+  } catch (error) {
+
+    console.error(error);
+
+    message.textContent =
+      "Something went wrong. Please try again.";
+
+  }
+}
+</script>
 
   <!-- ============ SUPPORT ============ -->
   <section class="card support" aria-labelledby="support-heading">
