@@ -568,12 +568,12 @@
 </footer>
 
 <script>
-document.querySelectorAll('a[href*="rzp.io"]').forEach(function(button) {
-  button.addEventListener('click', function() {
-    if (typeof fbq === 'function') {
-      fbq('track', 'InitiateCheckout');
-    }
-  });
+document.addEventListener('click', function(e) {
+  var button = e.target.closest('a[href*="rzp.io"]');
+
+  if (button && typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout');
+  }
 });
 </script>
 
