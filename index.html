@@ -567,6 +567,16 @@
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('a[href*="rzp.io"]').forEach(function(button) {
+  button.addEventListener('click', function() {
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout');
+    }
+  });
+});
+</script>
+
 <script src="script.js"></script>
 </body>
 </html>
