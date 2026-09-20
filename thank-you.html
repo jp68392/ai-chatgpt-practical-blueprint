@@ -1,6 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '971144152666602');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=971144152666602&ev=PageView&noscript=1"
+    />
+  </noscript>
+  <!-- End Meta Pixel Code -->
+ 
+  <!-- Meta Purchase Event
+       FIXED: this used to fire on every page LOAD (DOMContentLoaded),
+       which meant anyone reopening/reloading/sharing this URL counted
+       as a fake "Purchase" — even with zero real payment.
+       Now it fires ONLY when the visitor actually clicks the
+       download button below, and only once per browser
+       (localStorage, not sessionStorage, so it also survives new tabs). -->
+  <script>
+    function fireMetaPurchaseOnce() {
+      var purchaseKey = 'aiBlueprintPurchaseTracked_v1';
+      if (localStorage.getItem(purchaseKey) === '1') return;
+      localStorage.setItem(purchaseKey, '1');
+ 
+      // eventID lets this browser event de-duplicate against any
+      // server-side (CAPI) Purchase event you may add later for the
+      // same order, so Meta counts it once, not twice.
+      var eventId = 'purchase_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+ 
+      fbq('track', 'Purchase', {
+        value: 149,
+        currency: 'INR'
+      }, {
+        eventID: eventId
+      });
+    }
+  </script>
+  <!-- End Meta Purchase Event -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thank You — AI & ChatGPT Practical Blueprint</title>
@@ -34,7 +81,7 @@
     --radius-md: 14px;
     --radius-sm: 10px;
   }
-
+ 
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -59,13 +106,13 @@
     outline-offset:2px;
   }
   img{max-width:100%; display:block;}
-
+ 
   .wrap{
     max-width:640px;
     margin:0 auto;
     padding:40px 20px 24px;
   }
-
+ 
   /* ---------- Hero / success ---------- */
   .hero{
     text-align:center;
@@ -106,7 +153,7 @@
     margin:0 auto 6px;
   }
   .hero p.strong{ color:var(--ink-900); font-weight:500; }
-
+ 
   /* ---------- Ebook delivery card ---------- */
   .card{
     background:var(--paper);
@@ -117,7 +164,7 @@
     margin-bottom:20px;
     animation: rise .6s ease .05s both;
   }
-
+ 
   .ebook-card{
     display:flex;
     gap:22px;
@@ -154,7 +201,7 @@
     font-family:'Poppins',sans-serif; font-weight:700;
     font-size:10px; color:#fff;
   }
-
+ 
   .ebook-info{ min-width:0; }
   .badge-digital{
     display:inline-block;
@@ -172,7 +219,7 @@
     font-size:13px; color:var(--ink-900); font-weight:500;
   }
   .ebook-info .author span{ color:var(--ink-600); font-weight:400; }
-
+ 
   /* ---------- Download CTA ---------- */
   .cta-block{ text-align:center; margin: 6px 0 26px; animation: rise .6s ease .1s both; }
   .btn-download{
@@ -194,7 +241,7 @@
   .btn-download:hover{ transform:translateY(-2px); box-shadow:0 18px 36px rgba(62,127,224,0.42); filter:brightness(1.03); }
   .btn-download:active{ transform:translateY(0); }
   .btn-download svg{ width:20px; height:20px; flex-shrink:0; }
-
+ 
   .cta-notes{
     margin-top:16px;
     font-size:13px;
@@ -203,7 +250,7 @@
     margin-left:auto; margin-right:auto;
   }
   .cta-notes p{ margin:4px 0; }
-
+ 
   /* ---------- Support section ---------- */
   .support h3{ font-size:17px; margin-bottom:8px; }
   .support p{ font-size:14px; color:var(--ink-600); margin:0 0 14px; }
@@ -234,7 +281,7 @@
     transition: border-color .15s ease, background .15s ease;
   }
   .btn-secondary:hover{ border-color:var(--blue-500); background:var(--blue-050); }
-
+ 
   /* ---------- Important note ---------- */
   .note{
     background:var(--amber-050);
@@ -248,7 +295,7 @@
   .note p{ font-size:13.5px; color:#6B4400; margin:0 0 6px; }
   .note p:last-child{ margin-bottom:0; }
   .note strong{ color:var(--amber-600); }
-
+ 
   /* ---------- Policies accordion ---------- */
   .policies{ padding:8px 10px; animation: rise .6s ease .14s both; }
   .policies details{
@@ -297,7 +344,7 @@
     margin-bottom:14px;
   }
   .policy-body a{ color:var(--blue-600); }
-
+ 
   /* ---------- Footer ---------- */
   footer{
     text-align:center;
@@ -318,7 +365,7 @@
   }
   .footer-links a:hover{ color:var(--navy-950); background:var(--mist-50); }
   .footer-links .dot{ color:var(--border); }
-
+ 
   @keyframes rise{
     from{ opacity:0; transform:translateY(10px); }
     to{ opacity:1; transform:translateY(0); }
@@ -330,7 +377,7 @@
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
   }
-
+ 
   @media (max-width:480px){
     .ebook-card{ flex-direction:column; text-align:center; }
     .ebook-info .sub{ margin-bottom:10px; }
@@ -341,9 +388,9 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="wrap">
-
+ 
   <!-- ============ HERO / SUCCESS ============ -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="check-badge" aria-hidden="true">
@@ -354,7 +401,7 @@
     <p class="strong">Thank you for purchasing AI &amp; ChatGPT Practical Blueprint.</p>
     <p>Your ebook is ready. You can download it using the button below.</p>
   </section>
-
+ 
   <!-- ============ EBOOK DELIVERY CARD ============ -->
   <section class="card ebook-card" aria-label="Your ebook">
     <div class="cover-mock" role="img" aria-label="AI & ChatGPT Practical Blueprint ebook cover">
@@ -369,108 +416,20 @@
       <p class="author">Author: <span>Jitendra Kumar</span></p>
     </div>
   </section>
-
+ 
   <!-- ============ DOWNLOAD CTA ============ -->
- <!-- ============ SECURE DOWNLOAD CTA ============ -->
-<section class="cta-block" aria-label="Download your ebook">
-
-  <h3 style="margin-bottom:8px;">Download Your Ebook</h3>
-
-  <p style="color:var(--ink-600); font-size:14px; margin:0 auto 16px; max-width:420px;">
-    Payment verify karne ke liye wahi Email aur WhatsApp number enter karein
-    jo payment ke time diya tha.
-  </p>
-
-  <div style="max-width:420px; margin:0 auto 12px;">
-
-    <input
-      type="email"
-      id="download-email"
-      placeholder="Enter your Email"
-      autocomplete="email"
-      style="width:100%; padding:14px 16px; margin-bottom:10px; border:1px solid var(--border); border-radius:var(--radius-md); font:inherit; color:var(--ink-900); background:var(--paper); outline:none;"
-    >
-
-    <input
-      type="tel"
-      id="download-contact"
-      placeholder="Enter your WhatsApp Number"
-      autocomplete="tel"
-      style="width:100%; padding:14px 16px; margin-bottom:12px; border:1px solid var(--border); border-radius:var(--radius-md); font:inherit; color:var(--ink-900); background:var(--paper); outline:none;"
-    >
-
-  </div>
-
-  <a
-    class="btn-download"
-    href="#"
-    onclick="getEbook(event)"
-  >
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19.5h16"
-        stroke="#fff"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-    Download Your Ebook PDF
-  </a>
-
-  <div class="cta-notes">
-    <p id="download-message">
-      Enter your payment details to unlock your ebook.
-    </p>
-  </div>
-
-</section>
-
-<script>
-async function getEbook(event) {
-  event.preventDefault();
-
-  const email = document.getElementById("download-email").value.trim();
-  const contact = document.getElementById("download-contact").value.trim();
-  const message = document.getElementById("download-message");
-
-  if (!email || !contact) {
-    message.textContent =
-      "Please enter your Email and WhatsApp number.";
-    return;
-  }
-
-  message.textContent = "Verifying your payment...";
-
-  try {
-    const apiUrl =
-      "https://eiwucaugkvytwtqtbduf.supabase.co/functions/v1/smart-worker" +
-      "?email=" + encodeURIComponent(email) +
-      "&contact=" + encodeURIComponent(contact);
-
-    const response = await fetch(apiUrl);
-
-    const result = await response.json();
-
-    if (result.success && result.download_url) {
-      message.textContent =
-        "Payment verified. Opening your ebook...";
-
-      window.location.href = result.download_url;
-    } else {
-      message.textContent =
-        result.error ||
-        "Payment verification failed.";
-    }
-
-  } catch (error) {
-    console.error("Download error:", error);
-
-    message.textContent =
-      "Something went wrong. Please try again.";
-  }
-}
-</script>
+  <section class="cta-block" aria-label="Download your ebook">
+    <!-- REPLACE PDF_DOWNLOAD_LINK_HERE WITH YOUR ACTUAL EBOOK PDF LINK -->
+    <a class="btn-download" href="https://pdfbros.com/s/r3ysg9e" download onclick="fireMetaPurchaseOnce()">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0l-4.5-4.5M12 15l4.5-4.5M4 19.5h16" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download Your Ebook PDF
+    </a>
+    <div class="cta-notes">
+      <p>Button par tap karke ebook PDF open/download karein.</p>
+      <p>Mobile par download karne ke liye PDF open hone ke baad Download icon ka use karein.</p>
+    </div>
+  </section>
+ 
   <!-- ============ SUPPORT ============ -->
   <section class="card support" aria-labelledby="support-heading">
     <h3 id="support-heading">Need Help?</h3>
@@ -483,109 +442,109 @@ async function getEbook(event) {
       </a>
     </div>
   </section>
-
+ 
   <!-- ============ IMPORTANT NOTE ============ -->
   <section class="note" aria-label="Important information">
     <p><strong>Please save</strong> your ebook after downloading it so you can access it whenever you need.</p>
     <p>This ebook is for personal learning and use. Please do not redistribute or resell the PDF.</p>
   </section>
-
+ 
   <!-- ============ POLICIES (full text, copied from landing page) ============ -->
   <section class="card policies" aria-label="Policies">
     <details id="privacy">
       <summary>Privacy Policy<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="policy-body">
         <p class="policy-meta">Product: AI &amp; ChatGPT Practical Blueprint · Creator: Jitendra Kumar</p>
-
+ 
         <h4>Hum Kya Information Collect Karte Hain</h4>
         <p>Jab aap ye ebook purchase karte hain, hum aapka naam, email address aur order/payment information collect kar sakte hain, jo payment provider ke through process hota hai.</p>
-
+ 
         <h4>Information Ka Use</h4>
         <p>Ye information sirf aapko ebook access dene, customer support provide karne, aur order-related communication ke liye use ki jaati hai.</p>
-
+ 
         <h4>Payment Provider</h4>
         <p>Payment aapke chosen payment provider ke through securely process hota hai. Hum aapki card/payment details store nahi karte.</p>
-
+ 
         <h4>Third-Party Services</h4>
         <p>Delivery aur payment ke liye third-party services (jaise payment gateway) use ki jaa sakti hain, jo apni own privacy policies follow karti hain.</p>
-
+ 
         <h4>Data Security</h4>
         <p>Hum reasonable measures use karte hain aapki information ko protect karne ke liye, lekin koi bhi online transmission 100% secure guarantee nahi kar sakta.</p>
-
+ 
         <h4>Data Retention</h4>
         <p>Order aur communication records support purposes ke liye zaroori samay tak retain kiye jaate hain.</p>
-
+ 
         <h4>Aapke Rights</h4>
         <p>Aap apni information ke baare mein query, correction ya deletion request kar sakte hain, neeche diye gaye email par contact kar ke.</p>
-
+ 
         <h4>Policy Updates</h4>
         <p>Ye Privacy Policy samay-samay par update ho sakti hai. Latest version hamesha is page par available rahegi.</p>
-
+ 
         <h4>Contact</h4>
         <p>Kisi bhi privacy-related query ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
       </div>
     </details>
-
+ 
     <details id="terms">
       <summary>Terms &amp; Conditions<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="policy-body">
         <h4>Digital Product</h4>
         <p>AI &amp; ChatGPT Practical Blueprint ek digital ebook hai, jo PDF format mein deliver kiya jaata hai.</p>
-
+ 
         <h4>Personal-Use License</h4>
         <p>Purchase karne par aapko personal ya professional use ke liye ek non-exclusive license milta hai. Redistribution, reselling ya public uploading allowed nahi hai.</p>
-
+ 
         <h4>Intellectual Property</h4>
         <p>Is ebook ka poora content — text, prompts, templates aur design — Jitendra Kumar ki intellectual property hai.</p>
-
+ 
         <h4>AI Output Limitations</h4>
         <p>Is ebook mein diye gaye prompts AI tools (jaise ChatGPT) ke saath use karne ke liye hain. AI outputs kabhi-kabhi incorrect ya incomplete ho sakte hain — inhe hamesha independently verify karein.</p>
-
+ 
         <h4>Educational Purpose</h4>
         <p>Ye ebook purely educational aur informational purposes ke liye hai. Ye kisi professional, legal, financial ya career consultancy ka substitute nahi hai.</p>
-
+ 
         <h4>No Guaranteed Results</h4>
         <p>Is ebook mein diye gaye strategies se koi guaranteed income, job ya business result promise nahi kiya jaata. Results individual effort, skill, market conditions aur consistency par depend karte hain.</p>
-
+ 
         <h4>Third-Party AI Tools</h4>
         <p>Ye ebook third-party AI tools (jaise ChatGPT) ka reference deta hai. Un tools ke apne alag terms &amp; conditions hote hain, jinhe follow karna reader ki responsibility hai. AI tools ke features aur pricing time ke saath change ho sakte hain.</p>
-
+ 
         <h4>Product Access</h4>
         <p>Purchase ke baad ebook access delivery method ke according provide kiya jaayega.</p>
-
+ 
         <h4>Terms Updates</h4>
         <p>Ye Terms samay-samay par update ho sakti hain. Latest version is page par available rahegi.</p>
-
+ 
         <h4>Contact</h4>
         <p>Kisi bhi query ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
       </div>
     </details>
-
+ 
     <details id="refund">
       <summary>Refund Policy<svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
       <div class="policy-body">
         <p class="policy-meta">Product: AI &amp; ChatGPT Practical Blueprint · Regular Price: ₹199 · Offer Price: ₹149</p>
-
+ 
         <h4>Digital Product</h4>
         <p>AI &amp; ChatGPT Practical Blueprint ek digital (downloadable PDF) product hai.</p>
-
+ 
         <h4>Access Issues</h4>
         <p>Agar payment successful hone ke baad bhi aapko ebook access nahi milta, please humein turant contact karein — hum pehle technical access problem resolve karne ki koshish karenge.</p>
-
+ 
         <h4>Refund Requests</h4>
         <p>Refund request karte samay apna order/payment information (jaise transaction ID ya payment receipt) zaroor include karein, taaki hum aapki request jaldi verify kar sakein.</p>
-
+ 
         <h4>Processing</h4>
         <p>Agar refund approve kiya jaata hai, to wo aapke payment platform ke standard processing rules ke according process hoga. Hum har situation mein refund guarantee nahi karte.</p>
-
+ 
         <h4>Contact</h4>
         <p>Refund-related queries ke liye: <a href="mailto:Jp5441324@gmail.com">Jp5441324@gmail.com</a></p>
       </div>
     </details>
   </section>
-
+ 
 </div>
-
+ 
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-links">
@@ -597,7 +556,7 @@ async function getEbook(event) {
   </div>
   <p>© 2026 Jitendra Kumar. All rights reserved.</p>
 </footer>
-
+ 
 <script>
   // If the page is opened with a #privacy / #terms / #refund hash (from the footer links),
   // open that policy's accordion automatically and scroll to it.
@@ -612,6 +571,7 @@ async function getEbook(event) {
   window.addEventListener('hashchange', openHashPolicy);
   window.addEventListener('DOMContentLoaded', openHashPolicy);
 </script>
-
+ 
 </body>
 </html>
+ 
